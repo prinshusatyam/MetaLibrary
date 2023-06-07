@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AR Marker WebApp</title>
     <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+    <script src="js/aframe-ar.js"></script>
 </head>
 <body>
     <a-scene embedded arjs>
         <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
-        <a-marker-camera preset='hiro'></a-marker-camera>
+        <a-marker preset='hiro'></a-marker>
+        <a-entity camera></a-entity>
     </a-scene>
 </body>
 </html>
