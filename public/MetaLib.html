@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>A-Frame Meta Library</title>
+    <meta name="description" content="A-Frame VR Library" />
+
+    <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-extras@14411ea/dist/aframe-extras.controls.min.js"></script> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.0.0/dist/aframe-extras.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@fb96ab2/dist/aframe-extras.min.js"></script>
+    <!-- Aframe Physics System Cannon JS-->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.min.js"></script> -->
+
+    <script src="https://unpkg.com/aframe-randomizer-components@^3.0.1/dist/aframe-randomizer-components.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+    <a-assets>
+        <a-asset-item id="my-nav-mesh" src="assets/MAINHallNavMesh.glb"></a-asset-item>
+        <a-asset-item id="env-model" src="assets/FinalHallMain.glb"></a-asset-item>
+        <a-asset-item class="wall-texture" src="assets/img/wall_texture.jpg"></a-asset-item> 
+    </a-assets>
+      <!--Environment-->
+      <a-entity light="type:ambient;intensity:0.5"></a-entity>
+      <a-entity gltf-model="#env-model" static-body></a-entity>
+      <a-sky src="/assets/sky.jpg" rotation="0 10 0"></a-sky>
+      <a-entity gltf-model="#my-nav-mesh" nav-mesh visible="false"></a-entity>
+      <!--Main Code-->
+      <a-entity>
+        <!-- Image 1 -->
+        <a-plane src="./assets/img/art1.jpg" position="-9.8 2 -1" rotation="0 90 0" scale="1.5 1.5 1.5"></a-plane>
+        <a-plane color="#000000" position="-9.81 2 -1" rotation="0 90 0" scale="1.8 1.8 1.8"></a-plane>
+        <a-text value="Beauty is the opposite of perfection it’s about confidence, charisma, and character" scale="0.65 0.65 0.65" position="-9.8 3.3 -1" rotation="0 90 0" anchor="align" align="center" color="#000000"></a-text>
+        <!-- Image 2 -->
+        <a-plane src="./assets/img/img2.jpg" position="9.8 2 -1" rotation="0 -90 0" scale="1.5 1.5 1.5"></a-plane>
+        <a-plane color="#000000" position="9.81 2 -1" rotation="0 -90 0" scale="1.8 1.8 1.8"></a-plane>
+        <a-text value="Wear Crown be royal." scale="0.65 0.65 0.65" position="9.8 3.3 -1" rotation="0 -90 0" anchor="align" align="center" color="#000000"></a-text>
+        <!-- Image 3 -->
+        <a-plane src="./assets/img/art3.jpg" position="-10 2 -7" rotation="0 90 0" scale="1.5 1.5 1.5"></a-plane>
+        <a-plane color="#000000" position="-10.01 2 -7" rotation="0 90 0" scale="1.8 1.8 1.8"></a-plane>
+        <a-text value="Style is a way to say who you are without having to speak." scale="0.65 0.65 0.65" position="-10 3.3 -7" rotation="0 90 0" anchor="align" align="center" color="#000000"></a-text>
+        <!-- Image 4 -->
+        <a-plane src="./assets/img/art4.jpg" position="10 2 -7" rotation="0 -90 0" scale="1.5 1.5 1.5"></a-plane>
+        <a-plane color="#000000" position="10.01 2 -7" rotation="0 -90 0" scale="1.8 1.8 1.8"></a-plane>
+        <a-text value="I DON'T GO CRAZY. I AM CRAZY, I JUST GO NORMAL FROM TIME TO TIME - Harley Quinn." scale="0.65 0.65 0.65" position="10 3.3 -7" rotation="0 -90 0" anchor="align" align="center" color="#000000"></a-text>
+      </a-entity>
+      <a-entity id="rig" movement-controls="constrainToNavMesh: true;" look-controls>
+        <a-entity id="player"
+          camera
+          position="0 1.5 0"
+          visible="true"
+          static-body
+        >
+        </a-entity>
+      </a-entity>
+      
+    <!-- Lighting -->
+    <a-entity light="type:directional" position="5 5 0"></a-entity>
+    <a-entity light="type:ambient;intensity:0.5"></a-entity>
+    <a-entity light="type: point; intensity: 0.75; distance: 50; decay: 2" position="-3 10 1"></a-entity>
+    </a-scene>
+  </body>
+</html>
